@@ -39,7 +39,6 @@ namespace ConsoleApp1
         static List<Bull> bulls = new List<Bull>();
         static async Task Main()
         {
-            // определяем данные запроса
             string token = "";
             string result = "";
 
@@ -48,10 +47,9 @@ namespace ConsoleApp1
                 request.Content = new StringContent(
                 "[{\"value\":0,\"im\":\"Общая база быков\",\"field\":\"\",\"method\":\"data_base\",\"group\":\"\",\"ready\":true},{\"method\":\"page\",\"value\":1,\"ready\":true},{\"value\":\"1\",\"field\":\"typeSearch\",\"method\":\"radio\",\"ready\":true},{\"value\":true,\"field\":\"bull\",\"method\":\"checkbox\",\"group\":\"prizn\",\"ready\":true},{\"value\":false,\"field\":\"sperm\",\"method\":\"checkbox\",\"group\":\"prizn\",\"ready\":true},{\"value\":true,\"field\":\"parent\",\"method\":\"checkbox\",\"group\":\"prizn\",\"ready\":true},{\"value\":[[\"CVM\",\"CV\",\"TV\"],[\"BLAD\",\"BT\",\"TL\"],[\"Brachyspina\",\"BY\",\"TY\"],[\"DUMPS\",\"DP\",\"TD\"],[\"Mulefoot\",\"MF\",\"TM\"],[\"FXID\",\"FXIDC\",\"FXIDF\"],[\"Citrullinemia\",\"CNC\",\"CNF\"],[\"PT\",\"PTC\",\"PTF\"],[\"DF\",\"DFC\",\"DFF\"],[\"D2\",\"D2C\",\"D2F\"],[\"IS\",\"ISC\",\"ISF\"],[\"BD\",\"BDC\",\"BDF\"],[\"FH2\",\"FH2C\",\"FH2F\"],[\"Weaver\",\"WC\",\"WFF\"],[\"SMA\",\"SMAC\",\"SMAF\"],[\"SAA\",\"SAAC\",\"SAAF\"],[\"SDM\",\"SDMC\",\"SDMF\"],[\"DW\",\"DWC\",\"DWF\"],[\"OS\",\"OSC\",\"OSF\"],[\"AM\",\"AMC\",\"AMF\"],[\"DM\",\"DMC\",\"DMF\"],[\"NH\",\"NHC\",\"NHF\"],[\"aMAN\",\"aMANC\",\"aMANF\"],[\"bMAN\",\"bMANC\",\"bMANF\"],[\"CM1\",\"CM1C\",\"CM1F\"],[\"CM2\",\"CM2C\",\"CM2F\"],[\"CTS\",\"CTSC\",\"CTSF\"],[\"[HAM\",\"HAMC\",\"HAMF\"],[\"AP\",\"APC\",\"APF\"],[\"CA\",\"CAC\",\"CAF\"],[\"IE\",\"IEC\",\"IEF\"],[\"HDZ\",\"HDZC\",\"HDZF\"],[\"PK\",\"PKC\",\"PKF\"],[\"HHT\",\"HHTC\",\"HHTF\"],[\"HI\",\"HIC\",\"HIF\"],[\"DD\",\"DDC\",\"DDF\"],[\"CC\",\"CCC\",\"CCF\"],[\"HY\",\"HYC\",\"HYF\"],[\"TH\",\"THC\",\"THF\"],[\"CP\",\"CPC\",\"CPF\"],[\"PHA\",\"PHAC\",\"PHAF\"],[\"NS\",\"NSC\",\"NSF\"],[\"ICM\",\"ICMC\",\"ICMF\"],[\"OH\",\"OHC\",\"OHF\"],[\"OD\",\"ODC\",\"ODF\"],[\"GC\",\"GCC\",\"GCF\"],[\"MSUD\",\"MSUDC\",\"MSUDF\"],[\"HP\",\"HPC\",\"HPF\"],[\"NCL\",\"NCLC\",\"NCLF\"],[\"NPD\",\"NPDC\",\"NPDF\"],[\"TP\",\"TPC\",\"TPF\"],[\"A\",\"A\",\"A*\"],[\"BMS\",\"BMSC\",\"BMSF\"],[\"HG\",\"HGC\",\"HGF\"],[\"PP\",\"POC\",\"POF\"],[\"Pp\",\"POS\",\"POF\"],[\"Черн. окрас\",\"BC\",\"BF\"],[\"Красн. окрас\",\"RC\",\"RF\"],[\"POR\",\"POR\"],[\"RTF\",\"RTF\"]],\"method\":\"anomaly\",\"ready\":true},{\"method\":\"order\",\"data\":{}},{\"method\":\"token\",\"data\":\"\"},{\"method\":\"radio\",\"value\":1,\"field\":\"typeSearch\",\"ready\":true}]"
                 , Encoding.UTF8, "application/json");
-                // отправляем запрос
+
                 using (var response = await httpClient.SendAsync(request))
                 {
-                    // получаем ответ
                     token = await response.Content.ReadAsStringAsync();
                     token = Regex.Unescape(token);
 
